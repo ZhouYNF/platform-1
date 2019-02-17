@@ -1,8 +1,10 @@
 package com.nf147.platform.dao;
 
 import com.nf147.platform.entity.GeArea;
-import java.util.List;
+import org.springframework.stereotype.Repository;
 
+import java.util.List;
+@Repository
 public interface GeAreaMapper {
     int deleteByPrimaryKey(Integer id);
 

@@ -17,7 +17,7 @@ spring:
 
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
-    url: jdbc:mariadb://localhost:3306/testdb
+    url: jdbc:mariadb://localhost:3306/policydb
     username: root
     password: dz520123
     # 数据库连接池
