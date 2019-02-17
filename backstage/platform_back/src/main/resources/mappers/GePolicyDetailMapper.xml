@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nf147.platform.dao.GePolicyDetailMapper">
+  <resultMap id="BaseResultMap" type="com.nf147.platform.entity.GePolicyDetail">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="policy_raw_id" jdbcType="INTEGER" property="policyRawId" />
+    <result column="index_number" jdbcType="VARCHAR" property="indexNumber" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="release_office" jdbcType="VARCHAR" property="releaseOffice" />
+    <result column="release_number" jdbcType="VARCHAR" property="releaseNumber" />
+    <result column="policy_basis" jdbcType="VARCHAR" property="policyBasis" />
+    <result column="wiritten_time" jdbcType="TIMESTAMP" property="wirittenTime" />
+    <result column="release_time" jdbcType="TIMESTAMP" property="releaseTime" />
+    <result column="effect_time" jdbcType="TIMESTAMP" property="effectTime" />
+    <result column="key_word" jdbcType="VARCHAR" property="keyWord" />
+    <result column="impement_subject" jdbcType="VARCHAR" property="impementSubject" />
+    <result column="direct_impement_subject" jdbcType="VARCHAR" property="directImpementSubject" />
+    <result column="image_url" jdbcType="VARCHAR" property="imageUrl" />
+    <result column="created_time" jdbcType="TIMESTAMP" property="createdTime" />
+    <result column="updated_time" jdbcType="TIMESTAMP" property="updatedTime" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+    <result column="content" jdbcType="LONGVARCHAR" property="content" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from ge_policy_detail
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.nf147.platform.entity.GePolicyDetail">
+    insert into ge_policy_detail (id, policy_raw_id, index_number, 
+      title, release_office, release_number, 
+      policy_basis, wiritten_time, release_time, 
+      effect_time, key_word, impement_subject, 
+      direct_impement_subject, image_url, created_time, 
+      updated_time, status, content
+      )
+    values (#{id,jdbcType=INTEGER}, #{policyRawId,jdbcType=INTEGER}, #{indexNumber,jdbcType=VARCHAR}, 
+      #{title,jdbcType=VARCHAR}, #{releaseOffice,jdbcType=VARCHAR}, #{releaseNumber,jdbcType=VARCHAR}, 
+      #{policyBasis,jdbcType=VARCHAR}, #{wirittenTime,jdbcType=TIMESTAMP}, #{releaseTime,jdbcType=TIMESTAMP}, 
+      #{effectTime,jdbcType=TIMESTAMP}, #{keyWord,jdbcType=VARCHAR}, #{impementSubject,jdbcType=VARCHAR}, 
+      #{directImpementSubject,jdbcType=VARCHAR}, #{imageUrl,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP}, 
+      #{updatedTime,jdbcType=TIMESTAMP}, #{status,jdbcType=VARCHAR}, #{content,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.nf147.platform.entity.GePolicyDetail">
+    update ge_policy_detail
+    set policy_raw_id = #{policyRawId,jdbcType=INTEGER},
+      index_number = #{indexNumber,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR},
+      release_office = #{releaseOffice,jdbcType=VARCHAR},
+      release_number = #{releaseNumber,jdbcType=VARCHAR},
+      policy_basis = #{policyBasis,jdbcType=VARCHAR},
+      wiritten_time = #{wirittenTime,jdbcType=TIMESTAMP},
+      release_time = #{releaseTime,jdbcType=TIMESTAMP},
+      effect_time = #{effectTime,jdbcType=TIMESTAMP},
+      key_word = #{keyWord,jdbcType=VARCHAR},
+      impement_subject = #{impementSubject,jdbcType=VARCHAR},
+      direct_impement_subject = #{directImpementSubject,jdbcType=VARCHAR},
+      image_url = #{imageUrl,jdbcType=VARCHAR},
+      created_time = #{createdTime,jdbcType=TIMESTAMP},
+      updated_time = #{updatedTime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=VARCHAR},
+      content = #{content,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select id, policy_raw_id, index_number, title, release_office, release_number, policy_basis, 
+    wiritten_time, release_time, effect_time, key_word, impement_subject, direct_impement_subject, 
+    image_url, created_time, updated_time, status, content
+    from ge_policy_detail
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, policy_raw_id, index_number, title, release_office, release_number, policy_basis, 
+    wiritten_time, release_time, effect_time, key_word, impement_subject, direct_impement_subject, 
+    image_url, created_time, updated_time, status, content
+    from ge_policy_detail
+  </select>
+</mapper>

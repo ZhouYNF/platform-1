@@ -1,0 +1,29 @@
+# 容器监听
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+# mybatis配置
+mybatis:
+  typeAliasesPackage: com.nf147.platform.entity
+  mapperLocations: classpath:mappers/*.xml
+
+# spring开发配置
+spring:
+  profiles:
+    active: dev
+
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://localhost:3306/testdb
+    username: root
+    password: dz520123
+    # 数据库连接池
+    type: com.mchange.v2.c3p0.ComboPooledDataSource
+  # 热部署
+  devtools:
+    restart:
+      enabled: true
+      additional-paths: src/main/java
