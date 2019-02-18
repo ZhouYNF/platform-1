@@ -1,12 +1,8 @@
 package com.nf147.platform.web;
 
-import com.nf147.platform.dao.GeAreaMapper;
 import com.nf147.platform.entity.GeArea;
-import com.nf147.platform.service.GeAreaService;
 import com.nf147.platform.service.impl.GeAreaServiceImpl;
-import com.nf147.platform.toolClass.ResultVO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;

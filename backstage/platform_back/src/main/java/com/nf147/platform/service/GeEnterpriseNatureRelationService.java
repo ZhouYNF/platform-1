@@ -1,7 +1,6 @@
 package com.nf147.platform.service;
 
 import com.nf147.platform.entity.GeEnterpriseNatureRelation;
-
 import java.util.List;
 
 public interface GeEnterpriseNatureRelationService {

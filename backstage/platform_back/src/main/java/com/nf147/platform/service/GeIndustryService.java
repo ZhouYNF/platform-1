@@ -1,7 +1,6 @@
 package com.nf147.platform.service;
 
 import com.nf147.platform.entity.GeIndustry;
-
 import java.util.List;
 
 public interface GeIndustryService {

@@ -1,7 +1,6 @@
 package com.nf147.platform.service;
 
 import com.nf147.platform.entity.GeAnalyzingRaw;
-
 import java.util.List;
 
 public interface GeAnalyzingRawService {

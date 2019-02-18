@@ -8,6 +8,7 @@ public interface GePolicyRawMapper {
 
     int insert(GePolicyRaw record);
 
+
     List<GePolicyRaw> selectAll();
 
     int updateByPrimaryKey(GePolicyRaw record);

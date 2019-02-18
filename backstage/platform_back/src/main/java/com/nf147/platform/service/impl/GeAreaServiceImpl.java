@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
-public class GeAreaServiceImpl implements GeAreaService {
+public class GeAreaServiceImpl implements GeAreaService{
 
     @Autowired
     private GeAreaMapper geAreaMapper;
