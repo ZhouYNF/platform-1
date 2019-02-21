@@ -39,6 +39,38 @@ public class GePolicyDetail {
 
     private String content;
 
+    private GePolicy gepolicy;
+
+    public GePolicyDetail(Integer id, Integer policyRawId, String indexNumber, String title, String releaseOffice, String releaseNumber, String policyBasis, Date wirittenTime, Date releaseTime, Date effectTime, String keyWord, String impementSubject, String directImpementSubject, String imageUrl, Date createdTime, Date updatedTime, String status, String content, GePolicy gepolicy) {
+        this.id = id;
+        this.policyRawId = policyRawId;
+        this.indexNumber = indexNumber;
+        this.title = title;
+        this.releaseOffice = releaseOffice;
+        this.releaseNumber = releaseNumber;
+        this.policyBasis = policyBasis;
+        this.wirittenTime = wirittenTime;
+        this.releaseTime = releaseTime;
+        this.effectTime = effectTime;
+        this.keyWord = keyWord;
+        this.impementSubject = impementSubject;
+        this.directImpementSubject = directImpementSubject;
+        this.imageUrl = imageUrl;
+        this.createdTime = createdTime;
+        this.updatedTime = updatedTime;
+        this.status = status;
+        this.content = content;
+        this.gepolicy = gepolicy;
+    }
+
+    public GePolicy getGepolicy() {
+        return gepolicy;
+    }
+
+    public void setGepolicy(GePolicy gepolicy) {
+        this.gepolicy = gepolicy;
+    }
+
     public Integer getId() {
         return id;
     }

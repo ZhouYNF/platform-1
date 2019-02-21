@@ -29,4 +29,14 @@ public class GePolicyRawServiceImpl implements GePolicyRawService {
     public int updateByPrimaryKey(GePolicyRaw record) {
         return 0;
     }
+
+    @Override
+    public List<GePolicyRaw> selectByRamPager(Integer start, Integer number) {
+        return null;
+    }
+
+    @Override
+    public int updateByRamStatus(Integer status) {
+        return 0;
+    }
 }

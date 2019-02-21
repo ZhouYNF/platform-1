@@ -13,4 +13,6 @@ public interface GePolicyDetailService {
     List<GePolicyDetail> selectAll();
 
     int updateByPrimaryKey(GePolicyDetail record);
+
+    List<GePolicyDetail> selectByPolicDetail(Integer start, Integer number);
 }

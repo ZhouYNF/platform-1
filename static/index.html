@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Title</title>
+		<style>
+			progress {
+            width: 168px;
+            height: 5px;
+            color: #f00;
+            background: #EFEFF4;
+            border-radius: 0.1rem;
+        }
+
+        /* 表示总长度背景色 */
+        progress::-webkit-progress-bar {
+            background-color: #f2f2f2;
+            border-radius: 0.2rem;
+        }
+
+        /* 表示已完成进度背景色 */
+        progress::-webkit-progress-value {
+            background: forestgreen;
+            border-radius: 0.2rem;
+        }
+    </style>
+	</head>
+	<body>
+		<form method="post" enctype="multipart/form-data">
+			选择要上传的文件：<br />
+			<input type="file" name="file" id="myFile" /><span></span><br />
+			<!--<input type="file" name="file"/><span></span><br/>-->
+		</form>
+		<div id="bar">
+			上传进度:
+			<progress id="pro" value="0"></progress>
+		</div>
+		<input type="button" id="upLoadSub" value="上传" />
+
+	</body>
+	<script src="../js/jquery.js"></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script>
+		var myFile = document.getElementById("myFile");
+		//绑定事件(ECMAScript6写法)
+		myFile.addEventListener("change", () => {
+			var file = myFile.files[0];
+			//toDataURL(file);
+			//预览图片函数
+			previewWithObjectURL(file);
+		})
+		//点击->图片上传 
+		$("#upLoadSub").on("click", function() {
+			var myFile = document.getElementById("myFile");
+			var formData = new FormData();
+			formData.append("file", myFile.files[0]);
+			$.ajax({
+				type: "post",
+				url: "http://localhost:8088/upLoad",
+				async: false,
+				contentType: false, //这个一定要写
+				processData: false, //这个也一定要写，不然会报错
+				data: formData,
+				dataType: 'json', //返回类型，有json，text，HTML。这里并没有jsonp格式，所以别妄想能用jsonp做跨域了。
+				success: function(data) {
+					console.log(data);
+				},
+				error: function(XMLHttpRequest, textStatus, errorThrown, data) {
+					alert(errorThrown);
+				}
+			});
+
+		});
+	</script>
+</html>

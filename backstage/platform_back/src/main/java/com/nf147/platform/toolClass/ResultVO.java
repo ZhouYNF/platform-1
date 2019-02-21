@@ -1,31 +1,43 @@
 package com.nf147.platform.toolClass;
 
-public class ResultVO<T> {
+import com.github.pagehelper.Page;
+
+/**
+ * @author 张东明
+ * @info 结果类
+ * @data 2019/2/20
+ * */
+public class ResultVo<T>{
+
     private int code;
     private T data;
+    private Page page;
     private String error;
     private Throwable throwable;
     private int pageSize;
 
 
-    public ResultVO() {
+
+    public ResultVo() {
     }
 
 
-    public ResultVO(int code, T data, String error, Throwable throwable) {
+    public ResultVo(int code, T data, Page page, String error, Throwable throwable) {
         this.code = code;
         this.data = data;
+        this.page = page;
         this.error = error;
         this.throwable = throwable;
     }
 
-    public ResultVO(int code, T data, int pageSize) {
+    public ResultVo(int code, T data, Page page, int pageSize) {
         this.code = code;
         this.data = data;
+        this.page = page;
         this.pageSize = pageSize;
     }
 
-    public ResultVO(int code, T data) {
+    public ResultVo(int code, T data) {
         this.code = code;
         this.data = data;
     }
@@ -34,7 +46,7 @@ public class ResultVO<T> {
         return code;
     }
 
-    public ResultVO<T> setCode(int code) {
+    public ResultVo<T> setCode(int code) {
         this.code = code;
         return this;
     }
@@ -43,17 +55,25 @@ public class ResultVO<T> {
         return data;
     }
 
-    public ResultVO<T> setData(T data) {
+    public ResultVo<T> setData(T data) {
         this.data = data;
         return this;
     }
 
+    public Page getPage() {
+        return page;
+    }
+
+    public ResultVo<T> setPage(Page page) {
+        this.page = page;
+        return this;
+    }
 
     public String getError() {
         return error;
     }
 
-    public ResultVO<T> setError(String error) {
+    public ResultVo<T> setError(String error) {
         this.error = error;
         return this;
     }
@@ -62,7 +82,7 @@ public class ResultVO<T> {
         return throwable;
     }
 
-    public ResultVO<T> setThrowable(Throwable throwable) {
+    public ResultVo<T> setThrowable(Throwable throwable) {
         this.throwable = throwable;
         return this;
     }
@@ -71,8 +91,9 @@ public class ResultVO<T> {
         return pageSize;
     }
 
-    public ResultVO<T> setPageSize(int pageSize) {
+    public ResultVo<T> setPageSize(int pageSize) {
         this.pageSize = pageSize;
         return this;
     }
 }
+

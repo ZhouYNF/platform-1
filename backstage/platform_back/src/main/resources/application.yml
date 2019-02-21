@@ -4,8 +4,10 @@ management:
     web:
       exposure:
         include: "*"
+#端口配置
 server:
   port: 8088
+
 # mybatis配置
 mybatis:
   typeAliasesPackage: com.nf147.platform.entity
@@ -28,3 +30,8 @@ spring:
     restart:
       enabled: true
       additional-paths: src/main/java
+  #文件上传限制
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB

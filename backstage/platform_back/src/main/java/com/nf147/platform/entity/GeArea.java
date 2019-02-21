@@ -50,4 +50,15 @@ public class GeArea {
     public void setParentId(Integer parentId) {
         this.parentId = parentId;
     }
+
+    @Override
+    public String toString() {
+        return "GeArea{" +
+                "id=" + id +
+                ", areaName='" + areaName + '\'' +
+                ", code='" + code + '\'' +
+                ", zipcode='" + zipcode + '\'' +
+                ", parentId=" + parentId +
+                '}';
+    }
 }
