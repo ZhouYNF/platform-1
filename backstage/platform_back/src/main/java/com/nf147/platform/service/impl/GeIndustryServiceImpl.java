@@ -4,6 +4,7 @@ import com.nf147.platform.dao.GeIndustryMapper;
 import com.nf147.platform.entity.GeIndustry;
 import com.nf147.platform.service.GeIndustryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -12,6 +13,7 @@ import java.util.List;
  * // TODO: 2019/2/18
  * 国名经济行业
  */
+@Service
 public class GeIndustryServiceImpl implements GeIndustryService {
     @Autowired
     private GeIndustryMapper geIndustryMapper;

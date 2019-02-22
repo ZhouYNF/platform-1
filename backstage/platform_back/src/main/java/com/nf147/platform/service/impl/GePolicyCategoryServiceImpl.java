@@ -4,6 +4,7 @@ import com.nf147.platform.dao.GePolicyCategoryMapper;
 import com.nf147.platform.entity.GePolicyCategory;
 import com.nf147.platform.service.GePolicyCategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -12,6 +13,7 @@ import java.util.List;
  * // TODO: 2019/2/18
  * 政策类型
  */
+@Service
 public class GePolicyCategoryServiceImpl implements GePolicyCategoryService {
     @Autowired
     private GePolicyCategoryMapper gePolicyCategoryMapper;

@@ -4,6 +4,7 @@ import com.nf147.platform.dao.GeAnnouncementMapper;
 import com.nf147.platform.entity.GeAnnouncement;
 import com.nf147.platform.service.GeAnnouncementService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -12,6 +13,7 @@ import java.util.List;
  * // TODO: 2019/2/18
  *公告
  */
+@Service
 public class GeAnnouncementServiceImpl implements GeAnnouncementService {
     @Autowired
     private GeAnnouncementMapper geAnnouncementMapper;

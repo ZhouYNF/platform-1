@@ -3,6 +3,8 @@ package com.nf147.platform.web;
 import com.nf147.platform.entity.GePolicyRaw;
 import com.nf147.platform.service.GePolicyRawService;
 import com.nf147.platform.service.impl.GePolicyRawServiceImpl;
+import com.nf147.platform.toolClass.Constants;
+import com.nf147.platform.toolClass.JSONResponse;
 import com.nf147.platform.toolClass.ResultVo;
 import org.mybatis.spring.MyBatisSystemException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,20 +30,17 @@ public class GePolicyRawController {
      * @remark √
      */
     @GetMapping("/policy/raw/getByPager/{start}/{number}")
-    public ResultVo getByPolicyRawPager(@PathVariable("start") int start, @PathVariable("number") int number) {
+    public JSONResponse getByPolicyRawPager(@PathVariable("start") int start, @PathVariable("number") int number) {
         try {
             if (start > 0 && number >= 0) {
-                List<GePolicyRaw> gePolicyRaws = gePolicyRawService.findByPage(start, number);
-                return new ResultVo(200, gePolicyRaws);
+                return JSONResponse.OK(Constants.SUCCESS_200, gePolicyRawService.findByPage(start, number));
             } else {
-                return new ResultVo(202, "供处理的请求已被接受，但是处理未完成。查询出错！");
+                return JSONResponse.ERROR(Constants.SUCCESS_202);
             }
         } catch (MyBatisSystemException ex) {
-            return new ResultVo(500, "请求未完成。数据库连接出错。",
-                    null, ex.getMessage(), null);
+            return JSONResponse.ERROR(Constants.ERROR_500, ex.getMessage());
         } catch (Exception ex) {
-            return new ResultVo(501, "请求未完成。服务器不支持所请求的功能。",
-                    null, ex.getMessage(), null);
+            return JSONResponse.ERROR(Constants.ERROR_408, ex.getMessage());
         }
     }
 
@@ -50,21 +49,19 @@ public class GePolicyRawController {
      * @remark √
      */
     @GetMapping("/policy/raw/updateStatus/{status}/{id}")
-    public ResultVo updateByRamStatus(@PathVariable("status") String status,@PathVariable("id") int id) {
+    public JSONResponse updateByRamStatus(@PathVariable("status") String status, @PathVariable("id") int id) {
         try {
-            if (status != null && status != "" && id >0) {
-                int i = gePolicyRawService.updataRawStatus(status,id);
+            if (status != null && status != "" && id > 0) {
+                int i = gePolicyRawService.updataRawStatus(status, id);
                 if (i > 0) {
-                    return new ResultVo(200, "succeed");
+                    return JSONResponse.OK(Constants.SUCCESS_200,i);
                 }
             }
         } catch (MyBatisSystemException ex) {
-            return new ResultVo(500, "请求未完成。服务器遇到不可预知的情况。",
-                    null, ex.getMessage(), null);
+            return JSONResponse.ERROR(Constants.ERROR_500, ex.getMessage());
         } catch (Exception ex) {
-            return new ResultVo(501, "请求未完成。数据库连接出错。",
-                    null, ex.getMessage(), null);
+            return JSONResponse.ERROR(Constants.ERROR_408, ex.getMessage());
         }
-        return new ResultVo(202, "供处理的请求已被接受，但是处理未完成。");
+        return JSONResponse.ERROR(Constants.SUCCESS_202);
     }
 }

@@ -4,6 +4,7 @@ import com.nf147.platform.dao.GeAnalyzingMapper;
 import com.nf147.platform.entity.GeAnalyzing;
 import com.nf147.platform.service.GeAnalyzingService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -12,6 +13,7 @@ import java.util.List;
  * // TODO: 2019/2/18
  *解读
  */
+@Service
 public class GeAnalyzingServiceImpl implements GeAnalyzingService {
     @Autowired
     private GeAnalyzingMapper geAnalyzingMapper;

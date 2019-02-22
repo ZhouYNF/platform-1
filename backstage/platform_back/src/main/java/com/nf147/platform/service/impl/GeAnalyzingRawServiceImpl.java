@@ -4,6 +4,7 @@ import com.nf147.platform.dao.GeAnalyzingRawMapper;
 import com.nf147.platform.entity.GeAnalyzingRaw;
 import com.nf147.platform.service.GeAnalyzingRawService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -12,6 +13,7 @@ import java.util.List;
  * // TODO: 2019/2/18
  *原始解读
  */
+@Service
 public class GeAnalyzingRawServiceImpl implements GeAnalyzingRawService {
     @Autowired
     private GeAnalyzingRawMapper geAnalyzingRawMapper;

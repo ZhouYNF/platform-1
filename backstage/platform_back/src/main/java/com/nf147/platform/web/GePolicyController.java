@@ -2,6 +2,9 @@ package com.nf147.platform.web;
 
 import com.nf147.platform.entity.GePolicy;
 import com.nf147.platform.service.GePolicyService;
+import com.nf147.platform.service.impl.GePolicyServiceImpl;
+import com.nf147.platform.toolClass.Constants;
+import com.nf147.platform.toolClass.JSONResponse;
 import com.nf147.platform.toolClass.ResultVo;
 import org.mybatis.spring.MyBatisSystemException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,29 +21,27 @@ import org.springframework.web.bind.annotation.RestController;
 public class GePolicyController {
 
     @Autowired
-    private GePolicyService gePolicyService;
+    private GePolicyServiceImpl gePolicyService;
 
     /**
      * /policy/insert 向政策结构表插入数据
      * @remark √
      */
     @PostMapping("/policy/insert")
-    public ResultVo insertDetail(@RequestBody GePolicy gePolicy) {
+    public JSONResponse insertDetail(@RequestBody GePolicy gePolicy) {
         try {
             if (gePolicy != null) {
                 int result = gePolicyService.insert(gePolicy);
                 if (result > 0) {
-                    return new ResultVo(200, "succeed");
+                   return  JSONResponse.OK(Constants.SUCCESS_200,result);
                 }
             }
         } catch (MyBatisSystemException ex) {
-            return new ResultVo(500, "请求未完成。数据库连接出错。",
-                    null, ex.getMessage(), null);
+            return JSONResponse.ERROR(Constants.ERROR_500,ex.getMessage());
         } catch (Exception ex) {
-            return new ResultVo(501, "请求未完成。服务器不支持所请求的功能。",
-                    null, ex.getMessage(), null);
+            return JSONResponse.ERROR(Constants.ERROR_408,ex.getMessage());
         }
-        return new ResultVo(202, "供处理的请求已被接受，但是处理未完成。添加失败！");
+        return null;
     }
 
 }

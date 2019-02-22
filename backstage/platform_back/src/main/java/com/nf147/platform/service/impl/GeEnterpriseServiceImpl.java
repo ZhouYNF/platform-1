@@ -4,6 +4,7 @@ import com.nf147.platform.dao.GeEnterpriseMapper;
 import com.nf147.platform.entity.GeEnterprise;
 import com.nf147.platform.service.GeEnterpriseService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -12,6 +13,7 @@ import java.util.List;
  * // TODO: 2019/2/18
  *企业信息
  */
+@Service
 public class GeEnterpriseServiceImpl implements GeEnterpriseService {
     @Autowired
     private GeEnterpriseMapper geEnterpriseMapper;

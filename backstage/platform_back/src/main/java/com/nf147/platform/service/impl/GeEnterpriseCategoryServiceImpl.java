@@ -2,6 +2,7 @@ package com.nf147.platform.service.impl;
 
 import com.nf147.platform.entity.GeEnterpriseCategory;
 import com.nf147.platform.service.GeEnterpriseCategoryService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -10,6 +11,7 @@ import java.util.List;
  * // TODO: 2019/2/18
  *
  */
+@Service
 public class GeEnterpriseCategoryServiceImpl implements GeEnterpriseCategoryService {
     @Override
     public int deleteByPrimaryKey(Integer id) {

@@ -4,6 +4,7 @@ import com.nf147.platform.dao.GeAttachmentMapper;
 import com.nf147.platform.entity.GeAttachment;
 import com.nf147.platform.service.GeAttachmentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -12,6 +13,7 @@ import java.util.List;
  * // TODO: 2019/2/18
  *附件
  */
+@Service
 public class GeAttachmentServiceImpl implements GeAttachmentService {
     @Autowired
     private GeAttachmentMapper geAttachmentMapper;
