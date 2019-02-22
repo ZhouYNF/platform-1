@@ -1,6 +1,7 @@
 package com.nf147.platform.service;
 
 import com.nf147.platform.entity.GeLogSystem;
+
 import java.util.List;
 
 public interface GeLogSystemService {

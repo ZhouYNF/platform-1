@@ -1,6 +1,7 @@
 package com.nf147.platform.service;
 
 import com.nf147.platform.entity.GePolicyDetail;
+
 import java.util.List;
 
 public interface GePolicyDetailService {
@@ -14,5 +15,7 @@ public interface GePolicyDetailService {
 
     int updateByPrimaryKey(GePolicyDetail record);
 
-    List<GePolicyDetail> selectByPolicDetail(Integer start, Integer number);
+    int updataDetailStatus(String status, int id);
+
+    List<GePolicyDetail> findByPage(int start, int pageSize);
 }

@@ -29,6 +29,33 @@ public class GePolicy {
 
     private Date updatedTime;
 
+    public GePolicy() {
+    }
+
+    public GePolicy(Integer policyDetailId, Date createdTime) {
+        this.policyDetailId = policyDetailId;
+        this.createdTime = createdTime;
+    }
+
+    @Override
+    public String toString() {
+        return "GePolicy{" +
+                "id=" + id +
+                ", policyDetailId=" + policyDetailId +
+                ", keyWord='" + keyWord + '\'' +
+                ", declarationUrl='" + declarationUrl + '\'' +
+                ", policyType='" + policyType + '\'' +
+                ", areaId=" + areaId +
+                ", commentTimes=" + commentTimes +
+                ", sharedTimes=" + sharedTimes +
+                ", upvoteTimes=" + upvoteTimes +
+                ", favorTimes=" + favorTimes +
+                ", readedTimes=" + readedTimes +
+                ", createdTime=" + createdTime +
+                ", updatedTime=" + updatedTime +
+                '}';
+    }
+
     public Integer getId() {
         return id;
     }

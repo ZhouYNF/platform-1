@@ -22,6 +22,7 @@ public class GePolicyController {
 
     /**
      * /policy/insert 向政策结构表插入数据
+     * @remark √
      */
     @PostMapping("/policy/insert")
     public ResultVo insertDetail(@RequestBody GePolicy gePolicy) {

@@ -1,6 +1,7 @@
 package com.nf147.platform.service;
 
 import com.nf147.platform.entity.PolicyCompliantScale;
+
 import java.util.List;
 
 public interface PolicyCompliantScaleService {

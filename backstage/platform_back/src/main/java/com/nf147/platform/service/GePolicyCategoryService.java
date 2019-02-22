@@ -1,6 +1,7 @@
 package com.nf147.platform.service;
 
 import com.nf147.platform.entity.GePolicyCategory;
+
 import java.util.List;
 
 public interface GePolicyCategoryService {

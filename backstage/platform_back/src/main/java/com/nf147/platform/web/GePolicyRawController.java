@@ -2,6 +2,7 @@ package com.nf147.platform.web;
 
 import com.nf147.platform.entity.GePolicyRaw;
 import com.nf147.platform.service.GePolicyRawService;
+import com.nf147.platform.service.impl.GePolicyRawServiceImpl;
 import com.nf147.platform.toolClass.ResultVo;
 import org.mybatis.spring.MyBatisSystemException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,16 +21,17 @@ import java.util.List;
 public class GePolicyRawController {
 
     @Autowired
-    private GePolicyRawService gePolicyRawService;
+    private GePolicyRawServiceImpl gePolicyRawService;
 
     /**
      * @info /policy/raw/getByPager/{parameter}根据页码查询原始政策信息
+     * @remark √
      */
     @GetMapping("/policy/raw/getByPager/{start}/{number}")
     public ResultVo getByPolicyRawPager(@PathVariable("start") int start, @PathVariable("number") int number) {
         try {
             if (start > 0 && number >= 0) {
-                List<GePolicyRaw> gePolicyRaws = gePolicyRawService.selectByRamPager(start, number);
+                List<GePolicyRaw> gePolicyRaws = gePolicyRawService.findByPage(start, number);
                 return new ResultVo(200, gePolicyRaws);
             } else {
                 return new ResultVo(202, "供处理的请求已被接受，但是处理未完成。查询出错！");
@@ -45,12 +47,13 @@ public class GePolicyRawController {
 
     /**
      * @info /policy/raw/updateStatus/{parameter}修改原始政策信息
+     * @remark √
      */
-    @GetMapping("/policy/raw/updateStatus/{status}")
-    public ResultVo updateByRamStatus(@PathVariable("status") int status) {
+    @GetMapping("/policy/raw/updateStatus/{status}/{id}")
+    public ResultVo updateByRamStatus(@PathVariable("status") String status,@PathVariable("id") int id) {
         try {
-            if (status != 0) {
-                int i = gePolicyRawService.updateByRamStatus(status);
+            if (status != null && status != "" && id >0) {
+                int i = gePolicyRawService.updataRawStatus(status,id);
                 if (i > 0) {
                     return new ResultVo(200, "succeed");
                 }

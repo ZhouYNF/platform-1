@@ -1,6 +1,7 @@
 package com.nf147.platform.dao;
 
 import com.nf147.platform.entity.GeEnterpriseNature;
+
 import java.util.List;
 
 public interface GeEnterpriseNatureMapper {

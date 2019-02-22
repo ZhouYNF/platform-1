@@ -8,5 +8,5 @@
 
 ### testdb.sql文件说明
 
-这里是一个项目测试数据库。下载完毕backstage内项目后执行此sql文件，开启服务器访问localhost:8080/emp,确保系项目正常运行。
+这里是一个项目测试数据库。下载完毕backstage内项目后执行此sql文件，开启服务器访问localhost:8088/emp,确保系项目正常运行。
 

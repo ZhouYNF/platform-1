@@ -3,6 +3,7 @@ package com.nf147.platform.entity;
 import java.util.Date;
 
 public class GePolicyDetail {
+
     private Integer id;
 
     private Integer policyRawId;
@@ -39,7 +40,29 @@ public class GePolicyDetail {
 
     private String content;
 
-    private GePolicy gepolicy;
+    private GePolicy gePolicy;
+
+    public GePolicy getGePolicy() {
+        return gePolicy;
+    }
+
+    public void setGePolicy(GePolicy gePolicy) {
+        this.gePolicy = gePolicy;
+    }
+
+    public GePolicyDetail() {
+    }
+
+    public GePolicyDetail(Integer id, String status) {
+        this.id = id;
+        this.status = status;
+    }
+
+    public GePolicyDetail(Integer id, Integer policyRawId, String title) {
+        this.id = id;
+        this.policyRawId = policyRawId;
+        this.title = title;
+    }
 
     public GePolicyDetail(Integer id, Integer policyRawId, String indexNumber, String title, String releaseOffice, String releaseNumber, String policyBasis, Date wirittenTime, Date releaseTime, Date effectTime, String keyWord, String impementSubject, String directImpementSubject, String imageUrl, Date createdTime, Date updatedTime, String status, String content, GePolicy gepolicy) {
         this.id = id;
@@ -60,16 +83,9 @@ public class GePolicyDetail {
         this.updatedTime = updatedTime;
         this.status = status;
         this.content = content;
-        this.gepolicy = gepolicy;
+        this.gePolicy = gepolicy;
     }
 
-    public GePolicy getGepolicy() {
-        return gepolicy;
-    }
-
-    public void setGepolicy(GePolicy gepolicy) {
-        this.gepolicy = gepolicy;
-    }
 
     public Integer getId() {
         return id;
@@ -213,5 +229,30 @@ public class GePolicyDetail {
 
     public void setContent(String content) {
         this.content = content == null ? null : content.trim();
+    }
+
+    @Override
+    public String toString() {
+        return "GePolicyDetail{" +
+                "id=" + id +
+                ", policyRawId=" + policyRawId +
+                ", indexNumber='" + indexNumber + '\'' +
+                ", title='" + title + '\'' +
+                ", releaseOffice='" + releaseOffice + '\'' +
+                ", releaseNumber='" + releaseNumber + '\'' +
+                ", policyBasis='" + policyBasis + '\'' +
+                ", wirittenTime=" + wirittenTime +
+                ", releaseTime=" + releaseTime +
+                ", effectTime=" + effectTime +
+                ", keyWord='" + keyWord + '\'' +
+                ", impementSubject='" + impementSubject + '\'' +
+                ", directImpementSubject='" + directImpementSubject + '\'' +
+                ", imageUrl='" + imageUrl + '\'' +
+                ", createdTime=" + createdTime +
+                ", updatedTime=" + updatedTime +
+                ", status='" + status + '\'' +
+                ", content='" + content + '\'' +
+                ", gePolicy=" + gePolicy +
+                '}';
     }
 }

@@ -19,10 +19,12 @@
     <result column="content" jdbcType="LONGVARCHAR" property="content" />
     <result column="html" jdbcType="LONGVARCHAR" property="html" />
   </resultMap>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from ge_policy_raw
     where id = #{id,jdbcType=INTEGER}
   </delete>
+
   <insert id="insert" parameterType="com.nf147.platform.entity.GePolicyRaw">
     insert into ge_policy_raw (id, crawl_url, crawl_time, 
       index_number, title, release_office, 
@@ -37,25 +39,34 @@
       #{status,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{content,jdbcType=LONGVARCHAR}, 
       #{html,jdbcType=LONGVARCHAR})
   </insert>
+
   <update id="updateByPrimaryKey" parameterType="com.nf147.platform.entity.GePolicyRaw">
     update ge_policy_raw
-    set crawl_url = #{crawlUrl,jdbcType=VARCHAR},
-      crawl_time = #{crawlTime,jdbcType=TIMESTAMP},
-      index_number = #{indexNumber,jdbcType=VARCHAR},
-      title = #{title,jdbcType=VARCHAR},
-      release_office = #{releaseOffice,jdbcType=VARCHAR},
-      release_number = #{releaseNumber,jdbcType=VARCHAR},
-      policy_basis = #{policyBasis,jdbcType=VARCHAR},
-      wiritten_time = #{wirittenTime,jdbcType=TIMESTAMP},
-      release_time = #{releaseTime,jdbcType=TIMESTAMP},
-      effect_time = #{effectTime,jdbcType=TIMESTAMP},
-      image_url = #{imageUrl,jdbcType=VARCHAR},
-      status = #{status,jdbcType=VARCHAR},
-      remark = #{remark,jdbcType=VARCHAR},
-      content = #{content,jdbcType=LONGVARCHAR},
-      html = #{html,jdbcType=LONGVARCHAR}
+    set
+      <if test="crawlUrl !=null">crawl_url = #{crawlUrl,jdbcType=VARCHAR}</if>,
+      <if test="crawlTime !=null">crawl_time = #{crawlTime,jdbcType=TIMESTAMP}</if>,
+      <if test="indexNumber !=null">index_number = #{indexNumber,jdbcType=VARCHAR}</if>,
+      <if test="title !=null">title = #{title,jdbcType=VARCHAR}</if>,
+      <if test="releaseOffice !=null">release_office = #{releaseOffice,jdbcType=VARCHAR}</if>,
+      <if test="releaseNumber !=null">release_number = #{releaseNumber,jdbcType=VARCHAR}</if>,
+      <if test="policyBasis !=null">policy_basis = #{policyBasis,jdbcType=VARCHAR}</if>,
+      <if test="wirittenTime !=null">wiritten_time = #{wirittenTime,jdbcType=TIMESTAMP}</if>,
+      <if test="releaseTime !=null">release_time = #{releaseTime,jdbcType=TIMESTAMP}</if>,
+      <if test="effectTime !=null">effect_time = #{effectTime,jdbcType=TIMESTAMP}</if>,
+      <if test="imageUrl !=null">image_url = #{imageUrl,jdbcType=VARCHAR}</if>,
+      <if test="status !=null">status = #{status,jdbcType=VARCHAR}</if>,
+      <if test="remark !=null">remark = #{remark,jdbcType=VARCHAR}</if>,
+      <if test="content !=null">content = #{content,jdbcType=LONGVARCHAR}</if>,
+      <if test="html !=null">html = #{html,jdbcType=LONGVARCHAR}</if>
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <update id="updataRawStatus" parameterType="com.nf147.platform.entity.GePolicyDetail">
+    update ge_policy_raw
+    set
+    status = #{status,jdbcType=VARCHAR }
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select id, crawl_url, crawl_time, index_number, title, release_office, release_number, 
     policy_basis, wiritten_time, release_time, effect_time, image_url, status, remark, 
@@ -68,5 +79,12 @@
     policy_basis, wiritten_time, release_time, effect_time, image_url, status, remark, 
     content, html
     from ge_policy_raw
+  </select>
+
+  <select id="findByPage" resultMap="BaseResultMap">
+    select id, crawl_url, crawl_time, index_number, title, release_office, release_number,
+    policy_basis, wiritten_time, release_time, effect_time, image_url, status, remark,
+    content, html
+    from ge_policy_raw limit #{start,jdbcType=INTEGER},#{pageSize,jdbcType=INTEGER}
   </select>
 </mapper>

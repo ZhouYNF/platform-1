@@ -2,12 +2,11 @@ package com.nf147.platform.web;
 
 import com.nf147.platform.entity.GePolicyDetail;
 import com.nf147.platform.service.GePolicyDetailService;
+import com.nf147.platform.service.impl.GePolicyDetailServiceImpl;
 import com.nf147.platform.toolClass.ResultVo;
 import org.mybatis.spring.MyBatisSystemException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 /**
  * @author 张东明
@@ -18,10 +17,11 @@ import java.util.List;
 public class GePolicyDetailController {
 
     @Autowired
-    private GePolicyDetailService gePolicyDetailService;
+    private GePolicyDetailServiceImpl gePolicyDetailService;
 
     /**
-     * @info /policy/insert 向政策表插入数据
+     * @info /policy/insert 向政策结构表插入数据
+     * @remark over
      */
     @PostMapping("/policy/detail/insert")
     public ResultVo insertDetail(@RequestBody GePolicyDetail gePolicyDetail) {
@@ -43,6 +43,7 @@ public class GePolicyDetailController {
 
     /**
      * @info /policy/detail/updateInfo 修改政策结构表的信息
+     * @remark √
      */
     @PostMapping("/policy/detail/updateInfo")
     public ResultVo updateDetail(@RequestBody GePolicyDetail gePolicyDetail) {
@@ -64,12 +65,13 @@ public class GePolicyDetailController {
 
     /**
      * @info /policy/detail/updateStatus 修改政策结构表的状态
+     * @remark √
      */
     @PostMapping("/policy/detail/updateStatus")
     public ResultVo updateByDetailStatus(@RequestBody GePolicyDetail gePolicyDetail) {
         try {
             if (gePolicyDetail != null) {
-                int result = gePolicyDetailService.updateByPrimaryKey(gePolicyDetail);
+                int result = gePolicyDetailService.updataDetailStatus(gePolicyDetail.getStatus(),gePolicyDetail.getId());
                 if (result > 0) {
                     return new ResultVo(200,"succeed!");
                 }
@@ -85,13 +87,14 @@ public class GePolicyDetailController {
 
     /**
      * @info /policy/getByPager/{parameter} 分页查询政策结构表和政策表
+     * @remark √
      */
     @GetMapping("/policy/Detail/getByPager/{start}/{number}")
     public ResultVo getByPolicyRawPager(@PathVariable("start") int start, @PathVariable("number") int number) {
         try {
             if (start > 0 && number > 0) {
                 return new ResultVo(200,
-                        gePolicyDetailService.selectByPolicDetail(start, number));
+                        gePolicyDetailService.findByPage(start, number));
             }
         } catch (MyBatisSystemException ex) {
             return new ResultVo(500, "请求未完成。数据库连接出错。",

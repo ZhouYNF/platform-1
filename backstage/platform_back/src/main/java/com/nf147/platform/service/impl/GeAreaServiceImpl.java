@@ -7,25 +7,30 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
+/**
+ * // TODO: 2019/2/18
+ * 地区
+ */
 @Service
-public class GeAreaServiceImpl implements GeAreaService{
+public class GeAreaServiceImpl implements GeAreaService {
 
     @Autowired
     private GeAreaMapper geAreaMapper;
 
     @Override
     public int deleteByPrimaryKey(Integer id) {
-        return 0;
+        return geAreaMapper.deleteByPrimaryKey(id);
     }
 
     @Override
     public int insert(GeArea record) {
-        return 0;
+        return geAreaMapper.insert(record);
     }
 
     @Override
     public GeArea selectByPrimaryKey(Integer id) {
-        return null;
+        return geAreaMapper.selectByPrimaryKey(id);
     }
 
     @Override
@@ -35,6 +40,6 @@ public class GeAreaServiceImpl implements GeAreaService{
 
     @Override
     public int updateByPrimaryKey(GeArea record) {
-        return 0;
+        return geAreaMapper.updateByPrimaryKey(record);
     }
 }
