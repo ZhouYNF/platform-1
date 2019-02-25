@@ -2,7 +2,6 @@
 drop database if exists policydb;
 
 create database policydb;
-
 use policydb;
 
 create table ge_policy_raw(
@@ -24,6 +23,7 @@ create table ge_policy_raw(
   remark varchar(255) comment '备注，比如这条数据是本地上传的'		
 )comment = '原始政策表';
 
+select * from ge_policy_raw;
 -- 政策结构表
 create table ge_policy_detail(
   id int primary key auto_increment comment '编号',
@@ -45,7 +45,8 @@ create table ge_policy_detail(
   updated_time datetime comment '更新时间',
 	`status` varchar(8) comment '状态，是否发布，是否推送'
 )comment = '政策结构表';
-
+ select*
+    from ge_policy_detail d left join ge_policy p on d.id = p.policy_detail_id limit 1,1;
 -- 政策表
 create table ge_policy(
   id int primary key auto_increment comment '编号',
@@ -66,7 +67,7 @@ create table ge_policy(
 create table ge_analyzing_raw(
   id int primary key auto_increment comment '编号',
   policy_raw_id int comment '临时政策表id',
-  crawl_url varchar(128) comment '抓取的路径',			-- 建议加crawl
+  crawl_url varchar(128) comment '抓取的路径',			-- 建议加 crawl
   local_path varchar(64) comment '本地路径',
   content longtext comment '内容',
   crawl_time datetime comment '抓取时间',

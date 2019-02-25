@@ -20,10 +20,14 @@ spring:
 
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
-    url: jdbc:mariadb://localhost:3306/policydb
-    username: root
-    password: dz520123
+    url: jdbc:mariadb://192.168.4.199:3306/policydb
+    username: developer
+    password: 123456
+    #url: jdbc:mariadb://localhost:3306/policydb
+    #username: root
+    #password: dz520123
     # 数据库连接池
+
     type: com.mchange.v2.c3p0.ComboPooledDataSource
   # 热部署
   devtools:

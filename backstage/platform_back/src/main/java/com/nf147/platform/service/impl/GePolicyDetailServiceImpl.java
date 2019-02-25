@@ -90,4 +90,12 @@ public class GePolicyDetailServiceImpl implements GePolicyDetailService {
     public List<GePolicyDetail> findByPage(int start, int pageSize) {
         return gePolicyDetailMapper.findByPage((start - 1) * pageSize, pageSize);
     }
+
+    @Override
+    public List<GePolicyDetail> findByStatus(int start, int pageSize, String status) {
+        if (start > 0 && pageSize > 0 && status.equals("处理")){
+            return gePolicyDetailMapper.findByStatus(start, pageSize, status);
+        }
+        return null;
+    }
 }
