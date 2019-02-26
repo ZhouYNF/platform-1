@@ -5,10 +5,6 @@ public class GeArea {
 
     private String areaName;
 
-    private String code;
-
-    private String zipcode;
-
     private Integer parentId;
 
     public Integer getId() {
@@ -27,22 +23,6 @@ public class GeArea {
         this.areaName = areaName == null ? null : areaName.trim();
     }
 
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code == null ? null : code.trim();
-    }
-
-    public String getZipcode() {
-        return zipcode;
-    }
-
-    public void setZipcode(String zipcode) {
-        this.zipcode = zipcode == null ? null : zipcode.trim();
-    }
-
     public Integer getParentId() {
         return parentId;
     }
@@ -51,14 +31,12 @@ public class GeArea {
         this.parentId = parentId;
     }
 
-    @Override
-    public String toString() {
-        return "GeArea{" +
-                "id=" + id +
-                ", areaName='" + areaName + '\'' +
-                ", code='" + code + '\'' +
-                ", zipcode='" + zipcode + '\'' +
-                ", parentId=" + parentId +
-                '}';
+    public GeArea() {
+    }
+
+    public GeArea(Integer id, String areaName, Integer parentId) {
+        this.id = id;
+        this.areaName = areaName;
+        this.parentId = parentId;
     }
 }

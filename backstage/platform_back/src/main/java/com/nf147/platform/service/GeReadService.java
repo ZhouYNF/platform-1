@@ -4,6 +4,11 @@ import com.nf147.platform.entity.GeRead;
 
 import java.util.List;
 
+/**
+ * @author zhou
+ * // TODO: 2019/2/25
+ *
+ */
 public interface GeReadService {
     int deleteByPrimaryKey(Integer id);
 

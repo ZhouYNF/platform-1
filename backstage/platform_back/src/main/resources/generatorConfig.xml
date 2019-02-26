@@ -12,9 +12,9 @@
         </commentGenerator>
 
         <jdbcConnection driverClass="org.mariadb.jdbc.Driver"
-                        connectionURL="jdbc:mariadb://localhost/policydb"
-                        userId="root"
-                        password="dz520123">
+                        connectionURL="jdbc:mariadb://192.168.4.199:3306/policydb"
+                        userId="developer"
+                        password="123456">
         </jdbcConnection>
 
         <javaModelGenerator targetPackage="com.nf147.platform.entity" targetProject="src\main\java">
@@ -27,7 +27,7 @@
         <javaClientGenerator type="XMLMAPPER" targetPackage="com.nf147.platform.dao"  targetProject="src\main\java">
         </javaClientGenerator>
 
-        <table tableName="%">
+        <table tableName="ge_area">
             <property name="useActualColumnNames" value="false"/>
         </table>
     </context>

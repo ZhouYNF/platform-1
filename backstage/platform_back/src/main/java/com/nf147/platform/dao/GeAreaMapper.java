@@ -1,8 +1,6 @@
 package com.nf147.platform.dao;
 
 import com.nf147.platform.entity.GeArea;
-import org.springframework.stereotype.Repository;
-
 import java.util.List;
 
 public interface GeAreaMapper {
